@@ -538,8 +538,10 @@ module.ToggleUnit = setmetatable({
 		end
 	end,
 
-	Maintank = function(override)
+	maintank = function(override)
 		local dbUnit = module.db.profile.maintank
+		local dbUnit2 = module.db.profile.maintanktarget
+		local dbUnit3 = module.db.profile.maintanktargettarget
 		if override == nil then override = dbUnit.Enable end
 
 		if override then
@@ -559,13 +561,13 @@ module.ToggleUnit = setmetatable({
 				oUF_LUI_maintank:SetAttribute("oUF-initialConfigFunction", [[
 					local unit = ...
 					if unit == "maintanktargettarget" then
-						self:SetHeight(]]..dbUnit.Height..[[)
-						self:SetWidth(]]..dbUnit.Width..[[)
-						self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+						self:SetHeight(]]..dbUnit3.Height..[[)
+						self:SetWidth(]]..dbUnit3.Width..[[)
+						self:SetPoint("]]..dbUnit3.Point..[[", self:GetParent(), "]]..dbUnit3.RelativePoint..[[", ]]..dbUnit3.X..[[, ]]..dbUnit3.Y..[[)
 					elseif unit == "maintanktarget" then
-						self:SetHeight(]]..dbUnit.Height..[[)
-						self:SetWidth(]]..dbUnit.Width..[[)
-						self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+						self:SetHeight(]]..dbUnit2.Height..[[)
+						self:SetWidth(]]..dbUnit2.Width..[[)
+						self:SetPoint("]]..dbUnit2.Point..[[", self:GetParent(), "]]..dbUnit2.RelativePoint..[[", ]]..dbUnit2.X..[[, ]]..dbUnit2.Y..[[)
 					elseif unit == "maintank" then
 						self:SetHeight(]]..dbUnit.Height..[[)
 						self:SetWidth(]]..dbUnit.Width..[[)
@@ -593,13 +595,13 @@ module.ToggleUnit = setmetatable({
 					"oUF-initialConfigFunction", [[
 						local unit = ...
 						if unit == "maintanktargettarget" then
-							self:SetHeight(]]..dbUnit.Height..[[)
-							self:SetWidth(]]..dbUnit.Width..[[)
-							self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+							self:SetHeight(]]..dbUnit3.Height..[[)
+							self:SetWidth(]]..dbUnit3.Width..[[)
+							self:SetPoint("]]..dbUnit3.Point..[[", self:GetParent(), "]]..dbUnit3.RelativePoint..[[", ]]..dbUnit3.X..[[, ]]..dbUnit3.Y..[[)
 						elseif unit == "maintanktarget" then
-							self:SetHeight(]]..dbUnit.Height..[[)
-							self:SetWidth(]]..dbUnit.Width..[[)
-							self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+							self:SetHeight(]]..dbUnit2.Height..[[)
+							self:SetWidth(]]..dbUnit2.Width..[[)
+							self:SetPoint("]]..dbUnit2.Point..[[", self:GetParent(), "]]..dbUnit2.RelativePoint..[[", ]]..dbUnit2.X..[[, ]]..dbUnit2.Y..[[)
 						elseif unit == "maintank" then
 							self:SetHeight(]]..dbUnit.Height..[[)
 							self:SetWidth(]]..dbUnit.Width..[[)
@@ -612,7 +614,7 @@ module.ToggleUnit = setmetatable({
 				tank:Show()
 			end
 
-			module.ToggleUnit("Maintanktarget")
+			module.ToggleUnit("maintanktarget")
 		else
 			if oUF_LUI_maintank then
 				oUF_LUI_maintank:Hide()
@@ -623,11 +625,11 @@ module.ToggleUnit = setmetatable({
 				end
 			end
 
-			module.ToggleUnit("Maintanktarget", false)
+			module.ToggleUnit("maintanktarget", false)
 		end
 	end,
 
-	Maintanktarget = function(override)
+	maintanktarget = function(override)
 		local dbUnit = module.db.profile.maintanktarget
 		if override == nil then override = dbUnit.Enable end
 
@@ -641,17 +643,17 @@ module.ToggleUnit = setmetatable({
 				end
 			end
 
-			module.ToggleUnit("Maintanktargettarget")
+			module.ToggleUnit("maintanktargettarget")
 		else
 			for i = 1, 4 do
 				if _G["oUF_LUI_maintankUnitButton"..i.."target"] then _G["oUF_LUI_maintankUnitButton"..i.."target"]:Disable() end
 			end
 
-			module.ToggleUnit("Maintanktargettarget", false)
+			module.ToggleUnit("maintanktargettarget", false)
 		end
 	end,
 
-	Maintanktargettarget = function(override)
+	maintanktargettarget = function(override)
 		local dbUnit = module.db.profile.maintanktargettarget
 		if override == nil then override = dbUnit.Enable end
 
