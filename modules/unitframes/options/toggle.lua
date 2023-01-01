@@ -211,6 +211,8 @@ module.ToggleUnit = setmetatable({
 
 	party = function(override)
 		local dbUnit = module.db.profile.party
+		local dbUnit2 = module.db.profile.partytarget
+		local dbUnit3 = module.db.profile.partypet
 		if override == nil then override = dbUnit.Enable end
 
 		if override then
@@ -234,13 +236,13 @@ module.ToggleUnit = setmetatable({
 						self:SetHeight(]]..dbUnit.Height..[[)
 						self:SetWidth(]]..dbUnit.Width..[[)
 					elseif unit == "partytarget" then
-						self:SetHeight(]]..dbUnit.Height..[[)
-						self:SetWidth(]]..dbUnit.Width..[[)
-						self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+						self:SetHeight(]]..dbUnit2.Height..[[)
+						self:SetWidth(]]..dbUnit2.Width..[[)
+						self:SetPoint("]]..dbUnit2.Point..[[", self:GetParent(), "]]..dbUnit2.RelativePoint..[[", ]]..dbUnit2.X..[[, ]]..dbUnit2.Y..[[)
 					elseif unit == "partypet" then
-						self:SetHeight(]]..dbUnit.Height..[[)
-						self:SetWidth(]]..dbUnit.Width..[[)
-						self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+						self:SetHeight(]]..dbUnit3.Height..[[)
+						self:SetWidth(]]..dbUnit3.Width..[[)
+						self:SetPoint("]]..dbUnit3.Point..[[", self:GetParent(), "]]..dbUnit3.RelativePoint..[[", ]]..dbUnit3.X..[[, ]]..dbUnit3.Y..[[)
 					end
 				]])
 
@@ -266,13 +268,13 @@ module.ToggleUnit = setmetatable({
 							self:SetHeight(]]..dbUnit.Height..[[)
 							self:SetWidth(]]..dbUnit.Width..[[)
 						elseif unit == "partytarget" then
-							self:SetHeight(]]..dbUnit.Height..[[)
-							self:SetWidth(]]..dbUnit.Width..[[)
-							self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+							self:SetHeight(]]..dbUnit2.Height..[[)
+							self:SetWidth(]]..dbUnit2.Width..[[)
+							self:SetPoint("]]..dbUnit2.Point..[[", self:GetParent(), "]]..dbUnit2.RelativePoint..[[", ]]..dbUnit2.X..[[, ]]..dbUnit2.Y..[[)
 						elseif unit == "partypet" then
-							self:SetHeight(]]..dbUnit.Height..[[)
-							self:SetWidth(]]..dbUnit.Width..[[)
-							self:SetPoint("]]..dbUnit.Point..[[", self:GetParent(), "]]..dbUnit.RelativePoint..[[", ]]..dbUnit.X..[[, ]]..dbUnit.Y..[[)
+							self:SetHeight(]]..dbUnit3.Height..[[)
+							self:SetWidth(]]..dbUnit3.Width..[[)
+							self:SetPoint("]]..dbUnit3.Point..[[", self:GetParent(), "]]..dbUnit3.RelativePoint..[[", ]]..dbUnit3.X..[[, ]]..dbUnit3.Y..[[)
 						end
 					]]
 				)
