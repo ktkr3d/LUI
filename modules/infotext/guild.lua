@@ -342,6 +342,13 @@ function element.OnEnter(frame_)
 			infotip.slider:SetPoint("BOTTOMRIGHT", infotip, SLIDER_OFFSET, GAP)
 		end
 
+		-- Adjust MOTD in one line
+		local len = #GetGuildRosterMOTD()
+		while maxWidth < motd.name:GetStringWidth() + GAP * 2 and len > 1 do
+			len = len - 1
+			motd.name:SetText(format("%s %s...", motdPrefix, string.sub(GetGuildRosterMOTD(), 1, len)))
+		end
+
 	else -- not in a guild
 		local noGuild = element:CreateNoGuild()
 		noGuild.name:SetText(ERR_GUILD_PLAYER_NOT_IN_GUILD)
